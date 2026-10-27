@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATHOS — Professional Appliance Repair | Las Vegas, NV</title>
+<meta name="description" content="ATHOS Professional Appliance Repair in Las Vegas. Same-day repair of refrigerators, washers, dryers, dishwashers, ovens and microwaves. Call (725) 275-7501.">
+<style>
+  :root{
+    --navy:#24466e; --navy-dark:#18314e; --steel:#54677c; --steel-light:#8fa0b3;
+    --peri:#d7deeb; --peri-light:#eef1f7; --ink:#1c2733; --muted:#5d6d7e;
+    --accent:#2e5a8f; --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  a{text-decoration:none;color:inherit}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;border-radius:10px;padding:14px 26px;font-size:16px;transition:.2s;cursor:pointer;border:none}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-dark);transform:translateY(-1px)}
+  .btn-ghost{background:#fff;color:var(--navy);border:2px solid var(--peri)}
+  .btn-ghost:hover{border-color:var(--navy)}
+  /* top bar */
+  .topbar{background:var(--navy-dark);color:#cfdaea;font-size:14px}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px;flex-wrap:wrap;gap:6px}
+  .topbar a{color:#fff;font-weight:600}
+  /* header */
+  header{position:sticky;top:0;background:#fff;z-index:50;box-shadow:0 2px 14px rgba(24,49,78,.08)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;gap:16px}
+  .logo{display:flex;align-items:center;gap:2px}
+  .logo .word{font-size:34px;font-weight:800;letter-spacing:.5px;color:var(--steel);line-height:1}
+  .logo .word b{color:var(--navy);font-weight:800}
+  .logo small{display:block;font-size:11.5px;letter-spacing:2.2px;color:var(--navy);font-weight:600;text-transform:uppercase;margin-top:3px}
+  nav.main{display:flex;gap:28px;font-weight:600;color:var(--steel)}
+  nav.main a:hover{color:var(--navy)}
+  .call-btn{background:var(--navy);color:#fff;padding:11px 20px;border-radius:9px;font-weight:700;white-space:nowrap}
+  .call-btn:hover{background:var(--navy-dark)}
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--peri-light),#fff);padding:64px 0 70px}
+  .hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .badge{display:inline-block;background:#fff;border:1px solid var(--peri);color:var(--navy);font-weight:700;font-size:13.5px;padding:7px 14px;border-radius:99px;margin-bottom:18px}
+  h1{font-size:46px;line-height:1.12;color:var(--navy-dark);margin-bottom:18px}
+  h1 span{color:var(--accent)}
+  .hero p.lead{font-size:19px;color:var(--muted);margin-bottom:28px;max-width:520px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+  .ticks{display:flex;gap:22px;flex-wrap:wrap;color:var(--steel);font-weight:600;font-size:15px}
+  .ticks i{color:var(--navy);font-style:normal;margin-right:6px}
+  .hero-img{border-radius:20px;overflow:hidden;box-shadow:0 24px 50px rgba(24,49,78,.22)}
+  .hero-img img{height:100%;object-fit:cover}
+  /* trust strip */
+  .strip{background:var(--navy);color:#fff}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:26px;padding-bottom:26px;text-align:center}
+  .strip b{display:block;font-size:21px}
+  .strip span{font-size:14px;color:#c3d2e4}
+  /* sections */
+  section{padding:72px 0}
+  .kicker{text-align:center;color:var(--accent);font-weight:800;letter-spacing:2.5px;font-size:13px;text-transform:uppercase;margin-bottom:10px}
+  h2{text-align:center;font-size:34px;color:var(--navy-dark);margin-bottom:14px}
+  .sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:17px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{border:1px solid var(--peri);border-radius:var(--radius);padding:28px 24px;background:#fff;transition:.2s}
+  .card:hover{box-shadow:0 14px 34px rgba(24,49,78,.12);transform:translateY(-3px);border-color:var(--steel-light)}
+  .card .ic{width:54px;height:54px;border-radius:12px;background:var(--peri-light);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .card .ic svg{width:30px;height:30px;stroke:var(--navy);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .card h3{font-size:19px;color:var(--navy-dark);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+  .card a.more{display:inline-block;margin-top:12px;color:var(--accent);font-weight:700;font-size:15px}
+  /* photos band */
+  .band{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .band figure{border-radius:16px;overflow:hidden;position:relative;height:250px}
+  .band img{width:100%;height:100%;object-fit:cover}
+  .band figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(15,30,48,.78));color:#fff;font-weight:700;padding:34px 18px 14px;font-size:16px}
+  /* why */
+  .why{background:var(--peri-light)}
+  .why .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:46px;align-items:center}
+  .why img{border-radius:18px;box-shadow:0 18px 40px rgba(24,49,78,.18);height:100%;object-fit:cover}
+  .why h2{text-align:left}
+  .why .sub{text-align:left;margin:0 0 26px}
+  .why ul{list-style:none}
+  .why li{display:flex;gap:13px;margin-bottom:17px;font-size:16.5px}
+  .why li b{color:var(--navy-dark)}
+  .why .ck{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center}
+  .step{padding:10px 16px}
+  .step .n{width:58px;height:58px;margin:0 auto 15px;border-radius:50%;background:var(--peri);color:var(--navy-dark);font-size:23px;font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step h3{color:var(--navy-dark);margin-bottom:7px;font-size:18px}
+  .step p{color:var(--muted);font-size:15px}
+  /* brands + areas */
+  .brands{background:#fff;border-top:1px solid var(--peri);border-bottom:1px solid var(--peri);padding:38px 0}
+  .brands .row{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:center;color:var(--steel);font-weight:700;font-size:18px}
+  .areas{text-align:center;color:var(--muted);font-size:16px}
+  .areas b{color:var(--navy-dark)}
+  /* booking */
+  .book{background:linear-gradient(160deg,var(--navy-dark),var(--navy));color:#fff}
+  .book h2{color:#fff}
+  .book .sub{color:#c3d2e4}
+  .wizard{background:#fff;color:var(--ink);border-radius:18px;max-width:760px;margin:0 auto;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.3)}
+  .wsteps{display:flex;gap:8px;margin-bottom:26px}
+  .wsteps div{flex:1;text-align:center;font-size:13.5px;font-weight:700;color:var(--steel-light);padding-bottom:9px;border-bottom:3px solid var(--peri)}
+  .wsteps div.on{color:var(--navy);border-color:var(--navy)}
+  .pane{display:none}
+  .pane.on{display:block}
+  .pane h3{font-size:20px;color:var(--navy-dark);margin-bottom:16px}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .chip{border:2px solid var(--peri);border-radius:11px;padding:15px 8px;text-align:center;font-weight:700;color:var(--steel);cursor:pointer;transition:.15s;background:#fff;font-size:15px}
+  .chip:hover{border-color:var(--steel-light)}
+  .chip.sel{border-color:var(--navy);background:var(--peri-light);color:var(--navy-dark)}
+  label{display:block;font-weight:600;font-size:14.5px;margin:0 0 7px;color:var(--navy-dark)}
+  input,select,textarea{width:100%;border:1.5px solid var(--peri);border-radius:10px;padding:12px 14px;font-size:16px;font-family:inherit;margin-bottom:16px;background:#fff}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+  textarea{resize:vertical;min-height:92px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .wnav{display:flex;justify-content:space-between;gap:12px;margin-top:6px}
+  .note{font-size:13.5px;color:var(--muted);text-align:center;margin-top:14px}
+  .success{text-align:center;padding:16px 6px}
+  .success .big{font-size:52px;margin-bottom:8px}
+  .success h3{font-size:24px;color:var(--navy-dark);margin-bottom:9px}
+  .success p{color:var(--muted)}
+  /* contact form */
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;align-items:start}
+  .cinfo h2,.cinfo .sub{text-align:left;margin-left:0}
+  .cinfo .line{display:flex;gap:13px;margin-bottom:18px;font-size:17px;align-items:flex-start}
+  .cinfo .line b{color:var(--navy-dark)}
+  .cinfo .line span.ic{font-size:20px}
+  form.plain{background:var(--peri-light);border-radius:16px;padding:28px}
+  /* footer */
+  footer{background:var(--navy-dark);color:#b9c9dc;padding:52px 0 30px}
+  footer .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;margin-bottom:36px}
+  footer h4{color:#fff;margin-bottom:14px;font-size:16px}
+  footer a:hover{color:#fff}
+  footer li{list-style:none;margin-bottom:9px;font-size:15px}
+  .fine{border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:13.5px;color:#8299b3;text-align:center}
+  @media(max-width:900px){
+    nav.main{display:none}
+    .hero .grid,.why .grid,.contact-grid{grid-template-columns:1fr}
+    .cards,.band,.steps{grid-template-columns:1fr 1fr}
+    .strip .wrap{grid-template-columns:1fr 1fr}
+    h1{font-size:36px}
+    footer .grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .cards,.band,.steps,.chips{grid-template-columns:1fr}
+    .frow{grid-template-columns:1fr}
+    .wizard{padding:24px 18px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div>📍 Serving Las Vegas, Henderson &amp; Summerlin</div>
+  <div>Mon–Sat 8:00 AM – 8:00 PM &nbsp;•&nbsp; <a href="tel:+17252757501">(725) 275-7501</a></div>
+</div></div>
+
+<header><div class="wrap">
+  <a class="logo" href="#">
+    <svg width="46" height="38" viewBox="0 0 60 48"><path d="M30 3 L55 45 H41 L30 21 L19 45 H5 Z" fill="#24466e"/><path d="M30 21 L36 34 H24 Z" fill="#fff"/></svg>
+    <span><span class="word">THOS</span><small>Professional Appliance Repair</small></span>
+  </a>
+  <nav class="main">
+    <a href="#services">Services</a><a href="#why">Why Us</a><a href="#how">How It Works</a><a href="#book">Book Online</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="call-btn" href="tel:+17252757501">📞 (725) 275-7501</a>
+</div></header>
+
+<div class="hero"><div class="wrap"><div class="grid">
+  <div>
+    <span class="badge">⭐ Appliance Repair in Las Vegas, NV</span>
+    <h1>Professional Appliance Repair — <span>Fast, Honest, Done Right</span></h1>
+    <p class="lead">Fridge not cooling? Washer leaking? ATHOS repairs all major home appliances across Las Vegas — with same-day appointments and upfront pricing.</p>
+    <div class="cta">
+      <a class="btn btn-navy" href="#book">🔧 Book a Repair</a>
+      <a class="btn btn-ghost" href="tel:+17252757501">📞 (725) 275-7501</a>
+    </div>
+    <div class="ticks"><span><i>✓</i>Same-Day Service</span><span><i>✓</i>Upfront Pricing</span><span><i>✓</i>All Major Brands</span></div>
+  </div>
+  <div class="hero-img"><img src="../img/kitchen.jpg" alt="Modern kitchen with appliances repaired by ATHOS"></div>
+</div></div></div>
+
+<div class="strip"><div class="wrap">
+  <div><b>Same-Day</b><span>appointments available</span></div>
+  <div><b>All Brands</b><span>major &amp; premium</span></div>
+  <div><b>Upfront</b><span>flat-rate pricing</span></div>
+  <div><b>Local</b><span>Las Vegas technician</span></div>
+</div></div>
+
+<section id="services"><div class="wrap">
+  <div class="kicker">What We Fix</div>
+  <h2>Appliance Repair Services</h2>
+  <p class="sub">From refrigerators to microwaves — one call fixes it all. We diagnose the problem on the spot and repair most appliances in a single visit.</p>
+  <div class="cards">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2"/><line x1="6" y1="10" x2="18" y2="10"/><line x1="9" y1="5.5" x2="9" y2="7.5"/><line x1="9" y1="13" x2="9" y2="15.5"/></svg></div>
+      <h3>Refrigerator Repair</h3><p>Not cooling, leaking, noisy compressor, ice maker issues, sealed-system problems — all makes and models, including built-in units.</p><a class="more" href="#book">Book repair →</a></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2"/><circle cx="12" cy="13.5" r="4.5"/><circle cx="12" cy="13.5" r="1.6"/><line x1="7" y1="5.5" x2="10" y2="5.5"/></svg></div>
+      <h3>Washer Repair</h3><p>Won't drain, won't spin, leaks, loud vibration or error codes — front-load and top-load machines repaired fast.</p><a class="more" href="#book">Book repair →</a></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2"/><circle cx="12" cy="13.5" r="4.5"/><path d="M9 11a4.5 4.5 0 0 1 6 0"/><line x1="7" y1="5.5" x2="10" y2="5.5"/></svg></div>
+      <h3>Dryer Repair</h3><p>Not heating, drum won't turn, squeaking or shutting off mid-cycle — gas and electric dryers serviced same day.</p><a class="more" href="#book">Book repair →</a></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="2.5" width="16" height="19" rx="2"/><line x1="4" y1="7" x2="20" y2="7"/><path d="M7.5 17.5c1.5-1.6 3-1.6 4.5 0s3 1.6 4.5 0"/><circle cx="8" cy="4.8" r=".6"/><circle cx="11" cy="4.8" r=".6"/></svg></div>
+      <h3>Dishwasher Repair</h3><p>Not draining, dishes stay dirty, leaks or won't start — we fix pumps, motors, valves and control boards.</p><a class="more" href="#book">Book repair →</a></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2"/><line x1="3.5" y1="9.5" x2="20.5" y2="9.5"/><circle cx="7" cy="6.8" r=".7"/><circle cx="10.5" cy="6.8" r=".7"/><rect x="7" y="12.5" width="10" height="5" rx="1"/></svg></div>
+      <h3>Oven &amp; Range Repair</h3><p>Won't heat, uneven baking, ignition problems, broken glass or error codes — gas and electric, wall ovens and ranges.</p><a class="more" href="#book">Book repair →</a></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><rect x="6" y="9" width="8.5" height="6" rx="1"/><line x1="17.5" y1="9.5" x2="17.5" y2="10.5"/><line x1="17.5" y1="13" x2="17.5" y2="14"/></svg></div>
+      <h3>Microwave Repair</h3><p>Not heating, sparking, plate won't turn or keypad dead — countertop and built-in over-the-range models.</p><a class="more" href="#book">Book repair →</a></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="band">
+    <figure><img src="../img/washer.jpg" alt="Washer repair in Las Vegas"><figcaption>Washers &amp; Dryers</figcaption></figure>
+    <figure><img src="../img/dishwasher.jpg" alt="Dishwasher repair in Las Vegas"><figcaption>Dishwashers</figcaption></figure>
+    <figure><img src="../img/kitchen3.jpg" alt="Kitchen appliance repair in Las Vegas"><figcaption>Ovens, Ranges &amp; Microwaves</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="why" id="why"><div class="wrap"><div class="grid">
+  <img src="../img/tech_repair.jpg" alt="ATHOS technician at work">
+  <div>
+    <div class="kicker" style="text-align:left">Why Athos</div>
+    <h2>One Technician. Total Accountability.</h2>
+    <p class="sub">ATHOS is run by owner-technician <b>Oleksii Mikoluta</b> — the person you call is the person who shows up, diagnoses and fixes your appliance.</p>
+    <ul>
+      <li><span class="ck">✓</span><span><b>Same-day appointments</b> — call in the morning, fixed by the evening in most cases.</span></li>
+      <li><span class="ck">✓</span><span><b>Upfront flat-rate pricing</b> — you approve the exact price before any work begins. No surprises.</span></li>
+      <li><span class="ck">✓</span><span><b>Quality parts</b> — OEM and high-grade parts, installed cleanly and tested before we leave.</span></li>
+      <li><span class="ck">✓</span><span><b>All major &amp; premium brands</b> — from Samsung and LG to Bosch, KitchenAid and Sub-Zero.</span></li>
+    </ul>
+    <a class="btn btn-navy" href="#book" style="margin-top:8px">Book a Repair</a>
+  </div>
+</div></div></section>
+
+<section id="how"><div class="wrap">
+  <div class="kicker">Simple Process</div>
+  <h2>How It Works</h2>
+  <p class="sub">Three easy steps between you and a working appliance.</p>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Book in 1 Minute</h3><p>Use the booking form below or call <b>(725) 275-7501</b>. Pick a time that works for you.</p></div>
+    <div class="step"><div class="n">2</div><h3>Diagnosis &amp; Price</h3><p>The technician inspects the appliance and gives you an exact flat-rate price upfront.</p></div>
+    <div class="step"><div class="n">3</div><h3>Repair &amp; Done</h3><p>Approve the price and we fix it on the spot — tested, cleaned up and ready to use.</p></div>
+  </div>
+</div></section>
+
+<div class="brands"><div class="wrap"><div class="row">
+  <span>Whirlpool</span><span>Samsung</span><span>LG</span><span>GE</span><span>Bosch</span><span>KitchenAid</span><span>Maytag</span><span>Frigidaire</span><span>Electrolux</span><span>Sub-Zero</span><span>Viking</span><span>Miele</span>
+</div></div></div>
+
+<section><div class="wrap">
+  <div class="kicker">Service Area</div>
+  <h2>Serving Greater Las Vegas</h2>
+  <p class="areas"><b>Las Vegas</b> • Henderson • Summerlin • North Las Vegas • Paradise • Spring Valley • Enterprise • Boulder City</p>
+</div></section>
+
+<section class="book" id="book"><div class="wrap">
+  <div class="kicker" style="color:#9db8d6">Book Online</div>
+  <h2>Book Your Repair in 3 Steps</h2>
+  <p class="sub">Takes less than a minute — we'll confirm your appointment shortly.</p>
+  <div class="wizard">
+    <div class="wsteps"><div class="on" data-ws="1">1 • Appliance</div><div data-ws="2">2 • Problem</div><div data-ws="3">3 • Your Info</div></div>
+
+    <div class="pane on" data-pane="1">
+      <h3>What needs repair?</h3>
+      <div class="chips">
+        <button type="button" class="chip">Refrigerator</button>
+        <button type="button" class="chip">Washer</button>
+        <button type="button" class="chip">Dryer</button>
+        <button type="button" class="chip">Dishwasher</button>
+        <button type="button" class="chip">Oven / Range</button>
+        <button type="button" class="chip">Microwave</button>
+      </div>
+      <div class="wnav"><span></span><button type="button" class="btn btn-navy" id="next1">Next →</button></div>
+    </div>
+
+    <div class="pane" data-pane="2">
+      <h3>Describe the problem</h3>
+      <label>What's happening with the appliance?</label>
+      <textarea id="f-problem" placeholder="e.g. Fridge is warm, freezer works fine. Started yesterday..."></textarea>
+      <div class="frow">
+        <div><label>Brand</label><input id="f-brand" type="text" placeholder="e.g. Samsung"></div>
+        <div><label>ZIP code</label><input id="f-zip" type="text" inputmode="numeric" placeholder="e.g. 89129"></div>
+      </div>
+      <div class="wnav"><button type="button" class="btn btn-ghost" data-back="1">← Back</button><button type="button" class="btn btn-navy" id="next2">Next →</button></div>
+    </div>
+
+    <div class="pane" data-pane="3">
+      <h3>Where do we send the technician?</h3>
+      <div class="frow">
+        <div><label>Your name</label><input id="f-name" type="text" placeholder="Full name"></div>
+        <div><label>Phone</label><input id="f-phone" type="tel" placeholder="(702) 555-0123"></div>
+      </div>
+      <label>Street address</label>
+      <input id="f-address" type="text" placeholder="Street, apt, city">
+      <div class="frow">
+        <div><label>Preferred date</label><input id="f-date" type="date"></div>
+        <div><label>Preferred time</label>
+          <select id="f-time"><option>Morning (8 AM – 12 PM)</option><option>Afternoon (12 – 4 PM)</option><option>Evening (4 – 8 PM)</option></select></div>
+      </div>
+      <div class="wnav"><button type="button" class="btn btn-ghost" data-back="2">← Back</button><button type="button" class="btn btn-navy" id="submitBtn">✔ Request Appointment</button></div>
+      <p class="note">Demo form — in the live version, requests go straight to ATHOS.</p>
+    </div>
+
+    <div class="pane" data-pane="4">
+      <div class="success">
+        <div class="big">✅</div>
+        <h3>Request received!</h3>
+        <p id="successText">Thank you! ATHOS will call you shortly to confirm your appointment.</p>
+        <p style="margin-top:14px">Need it faster? Call <a href="tel:+17252757501" style="color:var(--accent);font-weight:700">(725) 275-7501</a></p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="contact-grid">
+  <div class="cinfo">
+    <div class="kicker" style="text-align:left">Contact</div>
+    <h2>Talk to ATHOS Directly</h2>
+    <p class="sub">Prefer to just send a message? Fill out the form and we'll get back to you as soon as possible.</p>
+    <div class="line"><span class="ic">📞</span><span><b>Phone:</b><br><a href="tel:+17252757501">(725) 275-7501</a></span></div>
+    <div class="line"><span class="ic">✉️</span><span><b>Email:</b><br><a href="mailto:athosmiko@gmail.com">athosmiko@gmail.com</a></span></div>
+    <div class="line"><span class="ic">👤</span><span><b>Owner / Technician:</b><br>Oleksii Mikoluta</span></div>
+    <div class="line"><span class="ic">📍</span><span><b>Service area:</b><br>Las Vegas, NV &amp; nearby areas</span></div>
+    <div class="line"><span class="ic">🕗</span><span><b>Hours:</b><br>Mon–Sat: 8:00 AM – 8:00 PM</span></div>
+  </div>
+  <form class="plain" onsubmit="return sendMsg(event)">
+    <label>Your name</label><input required type="text" placeholder="Full name">
+    <label>Phone or email</label><input required type="text" placeholder="How do we reach you?">
+    <label>Appliance &amp; problem</label><textarea required placeholder="Tell us what's broken..."></textarea>
+    <button class="btn btn-navy" type="submit" style="width:100%;justify-content:center">Send Message</button>
+    <p class="note" id="msgNote">Demo form — connect it to email or CRM in the live version.</p>
+  </form>
+</div></div></section>
+
+<footer><div class="wrap">
+  <div class="grid">
+    <div>
+      <a class="logo" href="#" style="margin-bottom:14px">
+        <svg width="42" height="34" viewBox="0 0 60 48"><path d="M30 3 L55 45 H41 L30 21 L19 45 H5 Z" fill="#8fa0b3"/><path d="M30 21 L36 34 H24 Z" fill="#18314e"/></svg>
+        <span><span class="word" style="color:#d7deeb">THOS</span><small style="color:#8fa0b3">Professional Appliance Repair</small></span>
+      </a>
+      <p style="font-size:15px;max-width:340px">Fast, honest appliance repair in Las Vegas. One call — and your appliances work like new again.</p>
+    </div>
+    <div><h4>Services</h4><ul>
+      <li><a href="#services">Refrigerator Repair</a></li><li><a href="#services">Washer &amp; Dryer Repair</a></li>
+      <li><a href="#services">Dishwasher Repair</a></li><li><a href="#services">Oven &amp; Range Repair</a></li><li><a href="#services">Microwave Repair</a></li>
+    </ul></div>
+    <div><h4>Contact</h4><ul>
+      <li>📞 <a href="tel:+17252757501">(725) 275-7501</a></li>
+      <li>✉️ <a href="mailto:athosmiko@gmail.com">athosmiko@gmail.com</a></li>
+      <li>📍 Las Vegas, Nevada</li>
+      <li>🕗 Mon–Sat: 8 AM – 8 PM</li>
+    </ul></div>
+  </div>
+  <div class="fine">© 2026 ATHOS Professional Appliance Repair • Oleksii Mikoluta • Las Vegas, NV</div>
+</div></footer>
+
+<script>
+  var appliance='';
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('sel')});
+      c.classList.add('sel'); appliance=c.textContent.trim();
+    });
+  });
+  function go(n){
+    document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.dataset.pane==String(n))});
+    document.querySelectorAll('.wsteps div').forEach(function(s){s.classList.toggle('on',+s.dataset.ws<=Math.min(n,3))});
+    document.getElementById('book').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  document.getElementById('next1').addEventListener('click',function(){
+    if(!appliance){alert('Please choose an appliance first.');return;}
+    go(2);
+  });
+  document.getElementById('next2').addEventListener('click',function(){go(3)});
+  document.querySelectorAll('[data-back]').forEach(function(b){b.addEventListener('click',function(){go(+b.dataset.back)})});
+  document.getElementById('submitBtn').addEventListener('click',function(){
+    var name=document.getElementById('f-name').value.trim();
+    var phone=document.getElementById('f-phone').value.trim();
+    if(!name||!phone){alert('Please enter your name and phone number.');return;}
+    var t='Thank you, '+name+'! Your '+appliance+' repair request is in. ATHOS will call '+phone+' shortly to confirm your appointment.';
+    document.getElementById('successText').textContent=t;
+    go(4);
+  });
+  function sendMsg(e){
+    e.preventDefault();
+    document.getElementById('msgNote').textContent='✅ Message sent! (Demo — in the live version it lands in the ATHOS inbox.)';
+    e.target.reset();
+    return false;
+  }
+</script>
+</body>
+</html>
