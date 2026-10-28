@@ -123,6 +123,13 @@
   .rcard .who{font-weight:700;font-size:14.5px}
   .rcard .who span{display:block;color:var(--muted);font-weight:400;font-size:13.5px}
   /* brands */
+  .btiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:980px;margin:0 auto 28px}
+  .btile3{position:relative;border-radius:22px;overflow:hidden;height:185px;box-shadow:0 14px 30px rgba(58,49,43,.13)}
+  .btile3 img{width:100%;height:100%;object-fit:cover}
+  .btile3 .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(59,42,23,0) 40%,rgba(59,42,23,.8));display:flex;flex-direction:column;justify-content:flex-end;padding:16px 20px;text-align:left}
+  .btile3 b{font-family:Georgia,'Times New Roman',serif;color:#fff;font-size:20px;margin-bottom:1px}
+  .btile3 span{color:#f3e3cb;font-size:14px}
+  @media(max-width:820px){.btiles3{grid-template-columns:1fr}}
   .pills{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;max-width:860px;margin:0 auto}
   .pills span{background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:10px 22px;font-weight:700;font-size:16px;color:var(--ink)}
   .pills span:hover{border-color:var(--amber)}
@@ -345,6 +352,11 @@
   <div class="kicker">Brands We Service</div>
   <h2 class="serif">Your brand? We've got it covered</h2>
   <p class="sub">Major and premium brands alike — parts and know-how for all of them.</p>
+  <div class="btiles3">
+    <div class="btile3"><img src="https://stmpcprodeus.blob.core.windows.net/assets-thumbnails/Viking_VDR5486GSS_DualFuelRange_48_StainlessSteel_PhotoMain01_medium.png" alt="Viking 48-inch dual fuel range"><div class="ov"><b>Viking</b><span>Professional ranges &amp; ovens</span></div></div>
+    <div class="btile3"><img src="https://media3.bsh-group.com/Images/1200x/19806485_thermador-60-inch-ranges-PRD606WESG_960x640.png" alt="Thermador 60-inch Pro Grand range"><div class="ov"><b>Thermador</b><span>Pro Grand® ranges &amp; wall ovens</span></div></div>
+    <div class="btile3"><img src="https://subzero-appliance-repair-oc.com/wp-content/uploads/2022/05/subzero-repair3.jpg" alt="Sub-Zero refrigerator in a wood-paneled kitchen"><div class="ov"><b>Sub-Zero</b><span>Built-in refrigeration</span></div></div>
+  </div>
   <div class="pills">
     <span>Viking</span><span>Thermador</span><span>Samsung</span><span>LG</span><span>Whirlpool</span><span>GE</span><span>Bosch</span><span>KitchenAid</span><span>Maytag</span><span>Frigidaire</span><span>Electrolux</span><span>Sub-Zero</span><span>Wolf</span><span>Miele</span>
   </div>
